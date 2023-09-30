@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style4.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <style>
+        /* Add custom CSS styles if needed */
+    </style>
+</head>
+
+<body class="bg-light pb-3">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3 col-md-2">
+                <img src="logo.png" alt="" class="img-fluid mt-3 ml-5">
+            </div>
+            <div class="col-12 col-md-12">
+                <div class="container bg-white pt-3 pb-3 pr-5 pl-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 id="question">Do you have fever above 101.4?</h3>
+                            <p id="resultt"></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6 mx-auto text-center">
+                            <img src="1.png" class="img-fluid" id="questionImage" alt="Fever Image">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-12 col-md-7 mx-auto text-center">
+                            <button class="btn btn-primary btn-block" id="yesButton">Yes, I do</button>
+                            <button class="btn btn-primary btn-block mt-3" id="noButton">No, I don't</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Define an array of questions and corresponding images
+        var result1 = `High Probability of Corona!
+        1.	Isolate From Others 
+        2.	Rest and Take Care
+        3.	Call Work Health Providers
+        4.	Monitor Symptoms
+        5.	Talk to Someone About Testing
+        6.	Follow Govt Instructions
+        As of now, your answers suggest that you may need testing. If anything changes, take the question`;
+        var result3 = `You are all Good!
+        1.	No Test Needed At This Time 
+        2.	Maintain Social Distance
+        3.	Avoid groups of people and keep six feet apart from anyone who's not part of the household. Especially avoid those showing symptoms.
+        As of now, their answers suggest they do not need to get tested. If anything changes, take the questionnaire again.`;
+        var result2 = `High Probability of Corona!
+        1.	Isolate From Others
+        2.	Rest and Take Care
+        3.	Call Work Health Providers
+        4.	Monitor Symptoms
+        5.	Talk to Someone About Testing
+        6.	Follow Govt Instructions
+        As of now, your answers suggest that you may need testing. If anything changes, take the questionnaire again.`;
+        const questions = [
+            {
+                question: "1. Do you have fever above 101.4?",
+                imageSrc: "1.png",
+                res: false
+            },
+            {
+                question: "2. Do you have Cough - (Dry Cough)?",
+                imageSrc: "2.png",
+                res: false
+            },
+            {
+                question: "3. Do you have Cough - (Wet Cough)?",
+                imageSrc: "3.png",
+                res: false
+            },
+            {
+                question: "4. Do you have Shortness of Breath?",
+                imageSrc: "4.png",
+                res: false
+            },
+            {
+                question: "5. Do you have Flu?",
+                imageSrc: "5.png",
+                res: false
+            },
+            {
+                question: "6. Have you travelled abroad in the last 15 days?",
+                imageSrc: "6.png",
+                res: false
+            },
+            {
+                question: "7. Have you been in contact with any person who has recently travelled internationally?",
+                imageSrc: "7.png",
+                res: false
+            },
+            {
+                question: "8. Do you have chest infection?",
+                imageSrc: "8.png",
+                res: false
+            },
+            {
+                question: "9. Is your age more than or equal to 60 years of age?",
+                imageSrc: "9.png",
+                res: false
+            },
+            {
+                question: "10. Due to Co-morbidities, do you take any medicine?",
+                imageSrc: "10.png",
+                res: false
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        function updateQuestion() {
+            if (currentQuestionIndex < questions.length) {
+                const currentQuestion = questions[currentQuestionIndex];
+                $("#question").text(currentQuestion.question);
+                $("#questionImage").attr("src", currentQuestion.imageSrc);
+            } else {
+                // Redirect to result pages based on conditions
+                const answers = questions.map(q => q.res);
+                if (questions[0].res == true && questions[1].res == true && questions[3].res == true && questions[5].res == true && questions[7].res == true && questions[8].res == true) {
+                    window.location.href = "result1.html";
+                } else if (questions[0].res == true && questions[1].res == true && questions[3].res == true && questions[7].res == false && questions[8].res == false) {
+                    window.location.href = "result2.html";
+                } else {
+                    window.location.href = "result3.html";
+                }
+            $("#questionImage").hide();
+            $("#yesButton, #noButton").hide();
+            }
+        }
+
+        // Attach click event handler to both buttons
+        $("#yesButton").click(function () {
+            questions[currentQuestionIndex].res = true;
+            currentQuestionIndex++;
+            updateQuestion();
+        });
+        $("#noButton").click(function () {
+            questions[currentQuestionIndex].res = false;
+            currentQuestionIndex++;
+            updateQuestion();
+        });
+
+        // Initialize with the first question
+        updateQuestion();
+
+        // // Function to update the question and image
+        // function updateQuestion() {
+        //     if (currentQuestionIndex < questions.length) {
+        //         const currentQuestion = questions[currentQuestionIndex];
+        //         $("#question").text(currentQuestion.question);
+        //         $("#questionImage").attr("src", currentQuestion.imageSrc);
+        //     } else {
+        //         // Display a message when the questionnaire is complete
+        //         if (questions[0].res == true && questions[1].res == true && questions[3].res == true && questions[5].res == true && questions[7].res == true && questions[8].res == true) {
+        //             $("#question").text(`Questionnaire Complete`);
+        //             $("#resultt").text(`${result1}`);
+        //         } else if (questions[0].res == true && questions[1].res == true && questions[3].res == true && questions[7].res == false && questions[8].res == false) {
+        //             $("#question").text(`Questionnaire Complete:`);
+        //             $("#resultt").text(`${result2}`);
+        //         } else {
+        //             $("#question").text(`Questionnaire Complete`);
+        //             $("#resultt").text(`${result3}`)
+        //         }
+        //         $("#questionImage").hide();
+        //         $("#yesButton, #noButton").hide();
+        //     }
+        // }
+
+        // // Attach click event handler to both buttons
+        // $("#yesButton").click(function () {
+        //     questions[currentQuestionIndex].res = true;
+        //     currentQuestionIndex++;
+        //     updateQuestion();
+        // });
+        // $("#noButton").click(function () {
+        //     questions[currentQuestionIndex].res = false;
+        //     currentQuestionIndex++;
+        //     updateQuestion();
+        // });
+
+        // // Initialize with the first question
+        // updateQuestion();
+    </script>
+
+</body>
+
+</html>

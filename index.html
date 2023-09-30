@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style1.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <style>
+    /* Add custom CSS styles if needed */
+    a {
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid bg-light pt-3">
+    <div class="row">
+      <div class="col-3 col-md-2">
+          <img src="logo.png" alt="" class="img-fluid mt-3 ml-5">
+      </div>
+      <div class="col-11 col-md-12">
+        <div class="container my-5">
+          <div class="row">
+            <div class="col-12 col-md-7">
+              <h1>Covid-19</h1>
+              <br>
+              <p>
+                The disease causes respiratory illness (like the flu) with
+                symptoms such as cough, fever, and in more severe cases,
+                difficulty breathing. You can protect yourself by washing your
+                hands frequently, avoiding touching your face, and avoiding close
+                contact (1 meter or 3 feet) with people who are unwell.
+              </p>
+              <p>
+                Coronavirus disease spreads primarily through contact with an
+                infected person when they cough or sneeze. It also spreads when a
+                person touches a surface or object that has the virus on it, then
+                touches their eyes, nose, or mouth.
+              </p>
+            </div>
+            <div class="col-10 col-md-3 text-center ml-auto mr-auto">
+              <img src="covid19screen.png" alt="" class="img-fluid" />
+            </div>
+          </div>
+          <br>
+          <button class="btn btn-block btn-primary" id="startscreen">Start Screening</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container my-5">
+    <h2>More Information!</h2>
+    <br>
+    <div class="row mb-3 mt-3">
+      <div class="col-3 col-md-2 mt-auto mb-auto text-center">
+        <img src="virus.png" alt="" class="img-fluid" />
+      </div>
+      <div class="col-7 col-md-9 mt-3 my-auto">
+        <h3>What is COVID-19</h3>
+        <p>Coronavirus disease (COVID-19) is a dangerous disease ...</p>
+      </div>
+      <div class="col-1 col-md-1 mt-auto mb-auto">
+        <a href="virus.html">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <hr />
+    <div class="row mb-3 mt-3">
+      <div class="col-3 col-md-2 mt-auto mb-auto text-center">
+        <img src="symptoms.png" alt="" class="img-fluid" />
+      </div>
+      <div class="col-7 col-md-9 mt-3 my-auto">
+        <h3>What are its symptoms</h3>
+        <p>
+          The COVID-19 virus affects different people in different ways ...
+        </p>
+      </div>
+      <div class="col-1 col-md-1 mt-5 mb-auto">
+        <a href="symptoms.html">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <hr />
+    <div class="row mb-3 mt-3">
+      <div class="col-3 col-md-2 mt-auto mb-auto text-center">
+        <img src="prevent.png" alt="" class="img-fluid" />
+      </div>
+      <div class="col-7 col-md-9 mt-3 my-auto">
+        <h3>How can you prevent it?</h3>
+        <p>There's currently no vaccine to prevent Coronavirus disease ...</p>
+      </div>
+      <div class="col-1 col-md-1 mt-5 mb-auto">
+        <a href="prevent.html">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(document).ready(function () {
+      // Add a click event handler to the "Start Screening" button
+      $("#startscreen").click(function () {
+        // Use JavaScript to redirect to index2.html
+        window.location.href = "index2.html";
+      });
+    });
+  </script>
+</body>
+
+</html>
